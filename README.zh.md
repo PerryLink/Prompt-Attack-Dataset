@@ -2,9 +2,9 @@
 
 # Prompt-Attack-Dataset
 
-**A ready-to-use LLM prompt-injection attack test suite with 28 curated cases across 5 categories.**
+**开箱即用的 LLM 提示词注入攻击测试套件，含 28 个精选案例、覆盖 5 大类别。**
 
-*Ported into [dsh-defend](https://github.com/PerryLink/dsh-defend) — part of the PerryLink DSH Plugin Family.*
+*已移植至 [dsh-defend](https://github.com/PerryLink/dsh-defend) —— 属于 PerryLink DSH 插件家族。*
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 
@@ -14,41 +14,41 @@
 
 ---
 
-## What it does
+## 功能简介
 
-Prompt-Attack-Dataset ships a curated JSON dataset of prompt-injection attack cases and a runner that sends each one to a target model, then evaluates whether the model stayed safe. Results are shown as red `FAILED` (compromised) or green `SAFE` (secure).
+Prompt-Attack-Dataset 内置一份精选的提示词注入攻击案例 JSON 数据集，并提供运行器将每个案例发送给目标模型，然后判断模型是否保持安全。结果以红色 `FAILED`（被攻破）或绿色 `SAFE`（安全）展示。
 
-## Features
+## 核心特性
 
-- **Ready-to-use dataset** — 28 attack cases across 5 categories (prompt injection, jailbreak, data extraction, manipulation, encoding)
-- **Automated testing** — batch-send attack prompts to a model
-- **Visual results** — `SAFE` vs `FAILED` with per-case latency
-- **PyTest integration** — run attacks as a test suite in CI
-- **CLI tool** — `list`, `run`, `export`, and `stats` commands
+- **开箱即用的数据集** —— 28 个攻击案例，覆盖 5 大类别（提示词注入、越狱、数据提取、操纵、编码绕过）
+- **自动化测试** —— 批量发送攻击提示词到目标模型
+- **直观结果** —— `SAFE` vs `FAILED`，并显示每个案例的延迟
+- **PyTest 集成** —— 可作为测试套件在 CI 中运行
+- **CLI 工具** —— 提供 `list`、`run`、`export`、`stats` 命令
 
-## Quick start
+## 快速开始
 
 ```bash
 pip install prompt-attack-dataset
 
-# List all attack cases
+# 列出所有攻击案例
 prompt-attack-dataset list
 
-# Run attacks against OpenAI
+# 对 OpenAI 运行攻击测试
 prompt-attack-dataset run --provider openai --model gpt-4 --api-key $OPENAI_API_KEY
 
-# Run attacks against Anthropic
+# 对 Anthropic 运行攻击测试
 prompt-attack-dataset run --provider anthropic --model claude-3-opus-20240229 --api-key $ANTHROPIC_API_KEY
 
-# Filter by category
+# 按类别过滤
 prompt-attack-dataset run --provider openai --model gpt-4 --api-key $OPENAI_API_KEY --category prompt_injection
 
-# Export the dataset and show statistics
+# 导出数据集并查看统计信息
 prompt-attack-dataset export --format csv --output attacks.csv
 prompt-attack-dataset stats
 ```
 
-## Usage
+## 使用指南
 
 ### Python API
 
@@ -65,9 +65,9 @@ for result in results:
     print(result.attack_id, result.status)
 ```
 
-`AttackDataset.filter_attacks(category=..., severity=...)` narrows the run to a subset of cases.
+`AttackDataset.filter_attacks(category=..., severity=...)` 可将测试范围缩小到部分案例。
 
-### PyTest integration
+### PyTest 集成
 
 ```python
 import pytest
@@ -86,17 +86,17 @@ def test_prompt_injection_safety(runner):
         assert result.status == "SAFE", f"Model failed to handle {attack.name}"
 ```
 
-## Development
+## 开发
 
 ```bash
 poetry install
 poetry run pytest
 ```
 
-## License
+## 许可证
 
 [Apache License 2.0](LICENSE) © 2026 PerryLink
 
 ---
 
-**Security research and educational use only.** Do not use this tool for illegal or unauthorized testing.
+**仅限安全研究与教育用途。** 请勿将本工具用于非法或未经授权的测试。
