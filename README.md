@@ -1,6 +1,7 @@
 <div align="center">
 
 # Prompt-Attack-Dataset
+[![Gitee](https://img.shields.io/badge/Gitee-mirror-c71d23?logo=gitee)](https://gitee.com/perrylink/prompt-attack-dataset)
 
 **A ready-to-use LLM prompt-injection attack test suite with 28 curated cases across 5 categories.**
 
