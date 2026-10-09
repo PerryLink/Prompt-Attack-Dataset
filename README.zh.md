@@ -41,7 +41,8 @@ Prompt-Attack-Dataset 内置一份精选的提示词注入攻击案例 JSON 数�
 ## 快速开始
 
 ```bash
-pip install prompt-attack-dataset
+pip install "git+https://github.com/PerryLink/Prompt-Attack-Dataset.git"
+# （PyPI 未发布，源码直装）
 
 # 列出所有攻击案例
 prompt-attack-dataset list

@@ -42,7 +42,8 @@ The dataset ships 28 attack cases across 5 categories:
 ## Quick start
 
 ```bash
-pip install prompt-attack-dataset
+pip install "git+https://github.com/PerryLink/Prompt-Attack-Dataset.git"
+# (installs from source; not yet on PyPI)
 
 # List all attack cases
 prompt-attack-dataset list
